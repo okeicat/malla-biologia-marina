@@ -136,4 +136,26 @@ function renderMalla() {
       chk.checked = aprobado;
 
       chk.onclick = (e) => {
-        if (e.target
+        if (e.target divR.onclick = () => showInfo(r);
+        divS.appendChild(divR);
+      });
+
+    cont.appendChild(divS);
+  });
+}
+
+function showInfo(ramo) {
+  document.getElementById("modal-title").innerText = ramo.nombre;
+  let texto = `Créditos: ${ramo.creditos}`;
+  if (ramo.prereq) {
+    texto += `\nPrerrequisitos: ${ramo.prereq}`;
+  }
+  document.getElementById("modal-content").innerText = texto;
+  document.getElementById("info-modal").style.display = "flex";
+}
+
+window.onload = () => {
+  renderMalla();
+  document.querySelector(".close").onclick = () =>
+    document.getElementById("info-modal").style.display = "none";
+};
