@@ -1,10 +1,8 @@
-// 🧠 Convertir texto de prerrequisitos en arreglo
 function parsePrereq(texto) {
   if (!texto) return [];
   return texto.split(/ y |,|\/|;/).map(p => p.trim());
 }
 
-// ✅ Estado de aprobación
 let aprobados = new Set();
 
 const mallaData = [
@@ -158,4 +156,7 @@ function renderMalla() {
 
 function showInfo(ramo) {
   document.getElementById("modal-title").innerText = ramo.nombre;
-  let texto = `Créditos: ${ramo
+  let texto = `Créditos: ${ramo.creditos}`;
+  if (ramo.prereq) {
+    texto += `\nPrerrequisitos: ${ramo.prereq}`;
+  }
