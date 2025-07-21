@@ -162,3 +162,13 @@ function showInfo(ramo) {
   }
   document.getElementById("modal-content").innerText = texto;
   document.getElementById("info-modal").style.display
+  document.getElementById("modal-content").innerText = texto;
+  document.getElementById("info-modal").style.display = "flex";
+}
+
+window.onload = () => {
+  renderMalla();
+  document.querySelector(".close").onclick = () => {
+    document.getElementById("info-modal").style.display = "none";
+  };
+};
