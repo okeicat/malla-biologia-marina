@@ -160,3 +160,19 @@ function showInfo(ramo) {
   if (ramo.prereq) {
     texto += `\nPrerrequisitos: ${ramo.prereq}`;
   }
+function showInfo(ramo) {
+  document.getElementById("modal-title").innerText = ramo.nombre;
+  let texto = `Créditos: ${ramo.creditos}`;
+  if (ramo.prereq) {
+    texto += `\nPrerrequisitos: ${ramo.prereq}`;
+  }
+  document.getElementById("modal-content").innerText = texto;
+  document.getElementById("info-modal").style.display = "flex";
+}
+
+// Esto también debe ir al final:
+window.onload = () => {
+  renderMalla();
+  document.querySelector(".close").onclick = () =>
+    document.getElementById("info-modal").style.display = "none";
+};
